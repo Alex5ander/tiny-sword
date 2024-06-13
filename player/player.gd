@@ -101,11 +101,11 @@ func update_hitbox_detection() -> void:
 
 func damage(amount: int):
 	health -= amount
-	modulate = Color.RED
+	sprite.modulate = Color.RED
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN)
 	tween.set_trans(Tween.TRANS_QUINT)
-	tween.tween_property(self, "modulate", Color.WHITE, 0.2)
+	tween.tween_property(sprite, "modulate", Color.WHITE, 0.2)
 	
 	if health <= 0:
 		die()

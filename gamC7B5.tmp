@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4ou15nr208vv"]
+
+[ext_resource type="PackedScene" uid="uid://f07304e31yv3" path="res://misc/meat.tscn" id="1_fk3a5"]
+[ext_resource type="PackedScene" uid="uid://bp02xsv1h83i7" path="res://player/player.tscn" id="2_a6ox6"]
+[ext_resource type="PackedScene" uid="uid://4uexaa4yp87w" path="res://systems/mob_spawner.tscn" id="3_8p8f6"]
+[ext_resource type="Script" path="res://ui.gd" id="4_q5uc8"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Meat" parent="." instance=ExtResource("1_fk3a5")]
+position = Vector2(374, 132)
+
+[node name="Player" parent="." instance=ExtResource("2_a6ox6")]
+speed = 30000.0
+
+[node name="MobSpawner" parent="." instance=ExtResource("3_8p8f6")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("4_q5uc8")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.5
+offset_right = 20.5
+offset_bottom = 23.0
+grow_horizontal = 2
+scale = Vector2(1.8, 1.8)
+size_flags_horizontal = 4
+text = "00:59"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
