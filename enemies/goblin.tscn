@@ -62,7 +62,6 @@ height = 56.0
 [node name="Goblin" type="CharacterBody2D" groups=["enemies"]]
 motion_mode = 1
 script = ExtResource("1_0e738")
-health = 20
 death_prefab = ExtResource("2_f1dgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

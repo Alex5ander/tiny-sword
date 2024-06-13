@@ -10,8 +10,9 @@ func _ready():
 	sprite = enemy.get_node("AnimatedSprite2D")
 
 func _physics_process(delta):
-	var player_positon = GameManager.player_position
-	var direction = (player_positon - enemy.position).normalized()
-	enemy.velocity = direction * speed
-	sprite.flip_h = direction.x < 0
-	enemy.move_and_slide()
+	if !GameManager.gameOver:
+		var player_positon = GameManager.player_position
+		var direction = (player_positon - enemy.position).normalized()
+		enemy.velocity = direction * speed
+		sprite.flip_h = direction.x < 0
+		enemy.move_and_slide()

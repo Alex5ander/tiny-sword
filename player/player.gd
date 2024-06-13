@@ -1,6 +1,9 @@
 class_name Player
 extends CharacterBody2D
 
+
+@export var gameOverLabel: Label 
+
 @export_category("Movement")
 @export var speed: float = 3000.0
 @onready var animation_player = $AnimationPlayer
@@ -12,6 +15,7 @@ extends CharacterBody2D
 @export var ritual_scene: PackedScene
 var ritualT = 0
 var t = 0
+
 
 @export var max_health = 10
 var health = 10
@@ -115,6 +119,8 @@ func die():
 		var death_object = death_prefab.instantiate()
 		death_object.position = position
 		get_parent().add_child(death_object)
+	GameManager.gameOver = true
+	gameOverLabel.show()
 	queue_free()
 
 func heal(amount:int) -> int:
